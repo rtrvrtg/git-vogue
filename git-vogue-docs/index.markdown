@@ -34,6 +34,22 @@ git vogue init
 
 This one time command will setup the git hooks and other requirements to latch itself onto your repository. Once installed, *git-vogue*'s functionality is seamlessly integrated into your git workflow, making it an intrinsic part of your development cycle.
 
+Testing
+-------
+
+To run the built-in tests, run
+
+```bash
+cabal test
+```
+
+There are two sets of acceptance tests in the tests directory, that test against different sources of packages. To run them, run the following:
+
+```bash
+tests/acceptance-tests
+tests/acceptance-tests-2
+```
+
 Rationale
 ---------
 
@@ -45,18 +61,23 @@ Nobody formats their code quite the same way, making it difficult for developers
 
 To make things easier for everyone (including yourself), we've set up *git-vogue* to use **Stylish Haskell** to check if your code conforms to a given format. If it doesn't, your commit will not be allowed to be pushed upstream, and you will instead receive a number of recommeded changes.
 
-Design Philosophy
+Plugin design
 -----------------
 
-**The interface** is a single named subcommand, one of:
+**The interface** for an executable is a single argument, one of:
 
 * check
 * fix
 * name
 
-The plugin can assume that it will be running in the top-level directory of the package.
+The plugin can assume that the CWD will be set to the top-level directory of
+the package.
 
-**Rules for each subcommand**
+The plugin will receive a list of all files in the current repository that are
+not to be ignored via STDIN when running in "check" or "fix" mode. These file
+paths will be absolute and newline separated.
+
+**Rules for each plugin**
 
 * `check` shall not modify any files
 * `check` may have various return values:
