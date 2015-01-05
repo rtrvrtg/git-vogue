@@ -4,37 +4,38 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>git-vogue</title>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="./css/default.css" />
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/smooth-scroll.js"></script>
+        <script type="text/javascript" src="./js/run.js"></script>
     </head>
     <body>
-        <header>
+        <header data-scroll-header>
             <div id="navigation">
+                <a data-scroll href="#title">Top</a>
+                <a data-scroll href="#installation">Installation</a>
+                <a data-scroll href="#rationale">Rationale</a>
+                <a data-scroll href="#plugin-design">Plugin Design</a>
+                <a data-scroll href="#developing-a-plugin">Developing a Plugin</a>
                 <a href="https://www.anchor.com.au">Anchor</a>
                 <a href="https://github.com/anchor/git-vogue">Github</a>
             </div>
         </header>
 
         <section id="content">
-            <h1>git-vogue</h1>
+            <h1 id="title">git-vogue</h1>
 
             <p><a href="https://travis-ci.org/anchor/git-vogue"><img src="http://travis-ci.org/anchor/git-vogue.png" alt="Travis Status" /></a></p>
 <p><em>git-vogue</em> assists developers to keep their Haskell code <a href="https://www.youtube.com/watch?v=GuJQSAiODqI">“in vogue”</a>.</p>
 <p>This package defines a list of commands to check code quality, comments, and formatting continually. <em>git-vogue</em> will set up your repository to run all command pairs on commit, giving instant feedback on the quality of code, and helping fix issues more quickly.</p>
 <p>Currently, <em>git-vogue</em> will support <a href="http://hackage.haskell.org/package/hlint">hlint</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a> and <a href="https://hackage.haskell.org/package/stylish-haskell">Stylish Haskell</a>.</p>
 <h2 id="installation">Installation</h2>
-<p><em>git-vogue</em> can be found on Hackage (link TBA) and can be installed with Cabal.</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cabal</span> install git-vogue</code></pre>
-<p>To apply it to your repository, invoke:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> vogue init</code></pre>
-<p>This one time command will setup the git hooks and other requirements to latch itself onto your repository. Once installed, <em>git-vogue</em>’s functionality is seamlessly integrated into your git workflow, making it an intrinsic part of your development cycle.</p>
-<h2 id="testing">Testing</h2>
-<p>To run the built-in tests, run</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cabal</span> test</code></pre>
-<p>There are two sets of acceptance tests in the tests directory, that test against different sources of packages. To run them, run the following:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">tests/acceptance-tests</span>
-<span class="kw">tests/acceptance-tests-2</span></code></pre>
+<p>See instructions here:</p>
+<p><a href="https://github.com/anchor/git-vogue">git-vogue Github page</a></p>
 <h2 id="rationale">Rationale</h2>
-<p>At Anchor Engineering, we’ve been working with Haskell for some time, and we’ve encountered some interesting problems along the way. A lot of these problems have to do with <em>code readiness</em>: code that is not only ready to run and deploy, but also ready to pass on to other developers so they can maintain and update it.</p>
+<p>At <em>Anchor Engineering</em>, we’ve been working with Haskell for some time, and we’ve encountered some interesting problems along the way. A lot of these problems have to do with <em>code readiness</em>: code that is not only ready to run and deploy, but also ready to pass on to other developers so they can maintain and update it.</p>
 <h3 id="formatting">Formatting</h3>
 <p>Nobody formats their code quite the same way, making it difficult for developers to pick up each other’s code and read or change it. Differences in spaces verses tabs, or how methods are delimited can cause issues with a lack of standardization.</p>
 <p>To make things easier for everyone (including yourself), we’ve set up <em>git-vogue</em> to use <strong>Stylish Haskell</strong> to check if your code conforms to a given format. If it doesn’t, your commit will not be allowed to be pushed upstream, and you will instead receive a number of recommeded changes.</p>
@@ -65,10 +66,12 @@
 </ul></li>
 <li>If <code>fix</code> returns “success” (return code 0), <code>check</code> must no longer fail</li>
 </ul>
+<h2 id="developing-a-plugin">Developing a plugin</h2>
+<p><em>Anchor</em> has developed all its <em>git-vogue</em> plugins in Haskell, but you can implement them in any language that works with your POSIX-compatible environment.</p>
         </section>
 
         <footer>
-            <p class="info">Generated by Hakyll.</p>
+            <p class="info">© Anchor 2015.</p>
         </footer>
     </body>
 </html>
