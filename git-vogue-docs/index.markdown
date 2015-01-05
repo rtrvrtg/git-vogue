@@ -2,8 +2,6 @@
 title: git-vogue
 ---
 
-
-
 [![Travis Status](http://travis-ci.org/anchor/git-vogue.png)](https://travis-ci.org/anchor/git-vogue)
 
 *git-vogue* assists developers to keep their Haskell code ["in vogue"][1].
@@ -20,40 +18,14 @@ Currently, *git-vogue* will support [hlint][2], [hspec][3] and [Stylish Haskell]
 Installation
 ------------
 
-*git-vogue* can be found on Hackage (link TBA) and can be installed with Cabal.
+See instructions here:
 
-```bash
-cabal install git-vogue
-```
-
-To apply it to your repository, invoke:
-
-```bash
-git vogue init
-```
-
-This one time command will setup the git hooks and other requirements to latch itself onto your repository. Once installed, *git-vogue*'s functionality is seamlessly integrated into your git workflow, making it an intrinsic part of your development cycle.
-
-Testing
--------
-
-To run the built-in tests, run
-
-```bash
-cabal test
-```
-
-There are two sets of acceptance tests in the tests directory, that test against different sources of packages. To run them, run the following:
-
-```bash
-tests/acceptance-tests
-tests/acceptance-tests-2
-```
+[git-vogue Github page](https://github.com/anchor/git-vogue)
 
 Rationale
 ---------
 
-At Anchor Engineering, we've been working with Haskell for some time, and we've encountered some interesting problems along the way. A lot of these problems have to do with *code readiness*: code that is not only ready to run and deploy, but also ready to pass on to other developers so they can maintain and update it.
+At *Anchor Engineering*, we've been working with Haskell for some time, and we've encountered some interesting problems along the way. A lot of these problems have to do with *code readiness*: code that is not only ready to run and deploy, but also ready to pass on to other developers so they can maintain and update it.
 
 ### Formatting
 
@@ -90,3 +62,11 @@ paths will be absolute and newline separated.
     * Some errors remain - return code 1
     * Catastrophic failure to check - return code 2
 * If `fix` returns "success" (return code 0), `check` must no longer fail
+
+Developing a plugin
+-------------------
+
+*Anchor* has developed all its *git-vogue* plugins in Haskell, but you can implement them in any language that works with your POSIX-compatible environment.
+
+
+
