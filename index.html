@@ -30,7 +30,7 @@
             <p><a href="https://travis-ci.org/anchor/git-vogue"><img src="http://travis-ci.org/anchor/git-vogue.png" alt="Travis Status" /></a></p>
 <p><em>git-vogue</em> assists developers to keep their Haskell code <a href="https://www.youtube.com/watch?v=GuJQSAiODqI">“in vogue”</a>.</p>
 <p>This package defines a list of commands to check code quality, comments, and formatting continually. <em>git-vogue</em> will set up your repository to run all command pairs on commit, giving instant feedback on the quality of code, and helping fix issues more quickly.</p>
-<p>Currently, <em>git-vogue</em> will support <a href="http://hackage.haskell.org/package/hlint">hlint</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a> and <a href="https://hackage.haskell.org/package/stylish-haskell">Stylish Haskell</a>.</p>
+<p>Currently, <em>git-vogue</em> will support <a href="http://hackage.haskell.org/package/hlint">hlint</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a>, <a href="https://hackage.haskell.org/package/stylish-haskell">Stylish Haskell</a> and <a href="https://www.haskell.org/haddock/">Haddock</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>See instructions here:</p>
 <p><a href="https://github.com/anchor/git-vogue">git-vogue Github page</a></p>
@@ -39,6 +39,12 @@
 <h3 id="formatting">Formatting</h3>
 <p>Nobody formats their code quite the same way, making it difficult for developers to pick up each other’s code and read or change it. Differences in spaces verses tabs, or how methods are delimited can cause issues with a lack of standardization.</p>
 <p>To make things easier for everyone (including yourself), we’ve set up <em>git-vogue</em> to use <strong>Stylish Haskell</strong> to check if your code conforms to a given format. If it doesn’t, your commit will not be allowed to be pushed upstream, and you will instead receive a number of recommeded changes.</p>
+<h3 id="linting">Linting</h3>
+<p>Sometimes there are nicer ways to write your code than the way you’re aware of. Linting can optimise your code and show you better ways to work with it. We’ve set up <em>git-vogue</em> to use <em>hlint</em>, which runs across your Haskell files and recommends changes to them to make them a bit nicer.</p>
+<h3 id="testing">Testing</h3>
+<p>Integration of <em>git-vogue</em> with hspec means that as long as your tests are defined as hspec-compatible, your tests will always run, making sure that you’re committing compileable, correct code.</p>
+<h3 id="documentation">Documentation</h3>
+<p>Don’t you hate it when code isn’t documented well, especially your own? <em>git-vogue</em>’s Haddock checks make sure that your modules and methods are appropriately covered for documentation, and encourages you to do that little bit extra to make sure that anyone can use your work.</p>
 <h2 id="plugin-design">Plugin design</h2>
 <p><strong>The interface</strong> for an executable is a single argument, one of:</p>
 <ul>
@@ -48,7 +54,7 @@
 </ul>
 <p>The plugin can assume that the CWD will be set to the top-level directory of the package.</p>
 <p>The plugin will receive a list of all files in the current repository that are not to be ignored via STDIN when running in “check” or “fix” mode. These file paths will be absolute and newline separated.</p>
-<p><strong>Rules for each plugin</strong></p>
+<h3 id="rules-for-each-plugin">Rules for each plugin</h3>
 <ul>
 <li><code>check</code> shall not modify any files</li>
 <li><code>check</code> may have various return values:
@@ -67,11 +73,18 @@
 <li>If <code>fix</code> returns “success” (return code 0), <code>check</code> must no longer fail</li>
 </ul>
 <h2 id="developing-a-plugin">Developing a plugin</h2>
-<p><em>Anchor</em> has developed all its <em>git-vogue</em> plugins in Haskell, but you can implement them in any language that works with your POSIX-compatible environment.</p>
+<p><em>Anchor</em> has developed all its <em>git-vogue</em> plugins in Haskell, but you can implement them in any language that works with your POSIX-compatible environment. Even <strong>bash</strong> is suitable for writing your <em>git-vogue</em> plugins.</p>
+<p>Simply write your plugin to discover all the files you want to <code>check</code> and/or <code>fix</code>, perform the necessary operations on them to do so, and return the result as per the rules list above.</p>
+<p>Future versions of <em>git-vogue</em> will support limiting checking and fixing to certain sets of files only. An example of this might be checking and fixing code in <code>lib</code> directories, but not <code>test</code> scaffold directories. Please keep this in mind when developing your plugin, and be sure to isolate your file listing method appropriately.</p>
         </section>
 
         <footer>
-            <p class="info">© Anchor 2015.</p>
+            <p class="info">
+                © Anchor 2015.
+                <br />
+                <a href="https://github.com/Keyamoon/IcoMoon-Free">Icons by IcoMoon</a> <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </p>
+            <a class="top-marker" data-scroll href="#title">Top</a>
         </footer>
     </body>
 </html>
