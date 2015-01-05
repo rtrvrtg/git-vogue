@@ -63,7 +63,7 @@ header #navigation {
 header #navigation a {
     background: #1f1f1f;
     color: #fff;
-    font-size: 0.8em;
+    font-size: 0.7em;
     padding: 0.5em;
     text-decoration: none;
     text-transform: uppercase;
@@ -162,13 +162,16 @@ strong, b {
     padding-left: 0.25em;
 }
 
-#content #installation:after,
-#content #rationale:after,
+#content #quickstart:after,
+#content #philosophy:after,
+#content #uninstalling:after,
 #content #formatting:after,
 #content #linting:after,
 #content #testing:after,
 #content #documentation:after,
-#content #plugin-design:after, 
+#content #plugins:after,
+#content #plugin-specification:after, 
+#content #plugin-discoverydisabling:after, 
 #content #developing-a-plugin:after {
     content: "";
     width: 2em;
@@ -189,26 +192,34 @@ strong, b {
     -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
 }
 
-#content #installation.active:after,
-#content #rationale.active:after,
+#content #quickstart.active:after,
+#content #philosophy.active:after,
+#content #uninstalling.active:after,
 #content #formatting.active:after,
 #content #linting.active:after,
 #content #testing.active:after,
 #content #documentation.active:after,
-#content #plugin-design.active:after, 
+#content #plugins.active:after,
+#content #plugin-specification.active:after, 
+#content #plugin-discoverydisabling.active:after, 
 #content #developing-a-plugin.active:after {
     border: 4px solid white;
     box-shadow: 0 0 1px 4px rgb(255, 118, 19);
     background-color: rgb(255, 118, 19);
 }
 
-#content #installation:after {
+#content #quickstart:after {
     background-image: url(../images/installation.svg);
     background-size: 70%;
 }
 
-#content #rationale:after {
+#content #philosophy:after {
     background-image: url(../images/rationale.svg);
+    background-size: 70%;
+}
+
+#content #uninstalling:after {
+    background-image: url(../images/uninstall.svg);
     background-size: 70%;
 }
 
@@ -228,8 +239,17 @@ strong, b {
     background-image: url(../images/documentation.svg);
 }
 
-#content #plugin-design:after {
+#content #plugins:after {
+    background-image: url(../images/plugins.svg);
+}
+
+#content #plugin-specification:after {
     background-image: url(../images/plugin-design.svg);
+    background-size: 70%;
+}
+
+#content #plugin-discoverydisabling:after {
+    background-image: url(../images/power-cord.svg);
     background-size: 70%;
 }
 
