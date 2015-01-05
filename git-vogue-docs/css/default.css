@@ -95,13 +95,15 @@ footer {
     color: #555;
     font-size: 0.8em;
     margin-top: 2em;
-    padding: 1em;
+    padding: 1em 1em 2em;
 }
 
 footer a.top-marker {
     position: fixed;
     bottom: 0;
     right: 0;
+    background: #fff;
+    text-transform: uppercase;
 }
 
 h1 {
