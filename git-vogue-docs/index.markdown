@@ -1,5 +1,5 @@
 ---
-title: git-vogue - A pre-commit check framework
+title: git-vogue - a pre-commit check framework
 ---
 
 Intended to be used as a git pre-commit hook, *git-vogue* encourages developers
