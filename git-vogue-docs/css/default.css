@@ -13,6 +13,24 @@ body {
     }
 }
 
+a {
+    color: #09a3ea;
+    text-decoration: none;
+
+    transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -webkit-transition: color 0.2s linear;
+}
+
+a:visited {
+    color: #09a3ea;
+}
+
+a:hover, a:active {
+    color: #1f1f1f;
+    text-decoration: underline;
+}
+
 header {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -57,6 +75,16 @@ header #navigation a {
     position: relative;
 }
 
+header #navigation a:hover, header #navigation a:active {
+    text-decoration: none;
+}
+
+@media all and (min-width: 960px) {
+    header #navigation a {
+        vertical-align: -20%;
+    }
+}
+
 header #navigation a.active {
     background: #444;
     z-index: 2;
@@ -67,8 +95,13 @@ footer {
     color: #555;
     font-size: 0.8em;
     margin-top: 2em;
-    padding: 1em 0;
-    text-align: right;
+    padding: 1em;
+}
+
+footer a.top-marker {
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 h1 {
@@ -99,24 +132,6 @@ strong, b {
     margin: 1em auto 0 auto;
 }
 
-#content a {
-    color: #09a3ea;
-    text-decoration: none;
-
-    transition: color 0.2s linear;
-    -moz-transition: color 0.2s linear;
-    -webkit-transition: color 0.2s linear;
-}
-
-#content a:visited {
-    color: #09a3ea;
-}
-
-#content a:hover, #content a:active {
-    color: #1f1f1f;
-    text-decoration: underline;
-}
-
 #content pre, #content code, #content tt {
     font-family: Inconsolata, monospace;
     color: #111;
@@ -135,4 +150,90 @@ strong, b {
 #content em.anchor-branding {
     color: #FC6911;
     font-style: normal;
+}
+
+#content a[href*="github.com"]:after {
+    content: "";
+    background: url(../images/github.svg) no-repeat top right;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-size: contain;
+    padding-left: 0.25em;
+}
+
+#content #installation:after,
+#content #rationale:after,
+#content #formatting:after,
+#content #linting:after,
+#content #testing:after,
+#content #documentation:after,
+#content #plugin-design:after, 
+#content #developing-a-plugin:after {
+    content: "";
+    width: 2em;
+    height: 2em;
+    display: block;
+    float: right;
+    margin: 0 0.5em 0.5em 0;
+    background-size: 75%;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 1px 1px rgb(252, 105, 17);
+    background-color: rgb(252, 105, 17);
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transition: border 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+    -moz-transition: border 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+    -webkit-transition: border 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+}
+
+#content #installation.active:after,
+#content #rationale.active:after,
+#content #formatting.active:after,
+#content #linting.active:after,
+#content #testing.active:after,
+#content #documentation.active:after,
+#content #plugin-design.active:after, 
+#content #developing-a-plugin.active:after {
+    border: 4px solid white;
+    box-shadow: 0 0 1px 4px rgb(255, 118, 19);
+    background-color: rgb(255, 118, 19);
+}
+
+#content #installation:after {
+    background-image: url(../images/installation.svg);
+    background-size: 70%;
+}
+
+#content #rationale:after {
+    background-image: url(../images/rationale.svg);
+    background-size: 70%;
+}
+
+#content #formatting:after {
+    background-image: url(../images/formatting.svg);
+}
+
+#content #linting:after {
+    background-image: url(../images/linting.svg);
+}
+
+#content #testing:after {
+    background-image: url(../images/testing.svg);
+}
+
+#content #documentation:after {
+    background-image: url(../images/documentation.svg);
+}
+
+#content #plugin-design:after {
+    background-image: url(../images/plugin-design.svg);
+    background-size: 70%;
+}
+
+#content #developing-a-plugin:after {
+    background-image: url(../images/developing-a-plugin.svg);
+    background-size: 70%;
 }
