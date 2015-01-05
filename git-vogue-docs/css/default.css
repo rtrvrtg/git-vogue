@@ -105,11 +105,11 @@ footer a.top-marker {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 div.info {
@@ -128,7 +128,7 @@ strong, b {
 }
 
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
-    color: #2bc4ea;
+    color: #0076B2;
     margin: 1em auto 0 auto;
 }
 
